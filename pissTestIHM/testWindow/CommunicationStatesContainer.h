@@ -5,6 +5,8 @@
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QTableWidget>
+#include <QTreeWidget>
+#include <QHeaderView>
 #include <PlottingBoard.h>
 
 /**
@@ -18,6 +20,8 @@ class CommunicationStatesContainer : public QFrame
 private:
     int width;
     int height;
+    QStringList hardwareHeader;
+    QStringList transmissionHeader;
 
     PlottingBoard *communicationFrameRateWindow;
 
@@ -26,14 +30,11 @@ private:
     QHBoxLayout *communicationInformationWindowLayout;
 
     QTableWidget *HardwareInformation;
-    QTableWidget *TransmitBuffer;
-    QTableWidget *ReceiveBuffer;
+    QTreeWidget *transmitBuffer;
+    QTreeWidget *receiveBuffer;
 
     QVBoxLayout *CommunicationStatesContainerLayout;
 
-    QGridLayout *HardwareInformationLayout;
-    QGridLayout *TransmitBufferLayout;
-    QGridLayout *ReceiveBufferLayout;
 public:
     explicit CommunicationStatesContainer(int width, int height);
     void initVariable();

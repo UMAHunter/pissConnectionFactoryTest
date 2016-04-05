@@ -17,6 +17,8 @@ INCLUDEPATH += pissTestIHM/GuiComponentLib
 
 INCLUDEPATH += pissTestIHM/testWindow
 
+RESOURCES = imageresources.qrc
+
 SOURCES +=  main.cpp\
             pissConnectionFactory/CDatagramme.cpp \
             pissConnectionFactory/DatagrammeAnalyser.cpp \
