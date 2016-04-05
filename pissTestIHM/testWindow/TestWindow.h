@@ -12,6 +12,8 @@
 #include <QBrush>
 #include <QBitmap>
 #include <QLabel>
+#include <QLineEdit>
+
 
 #include "CommunicationStatesContainer.h"
 #include "pissCommunicationStack.h"
@@ -28,12 +30,19 @@ private:
 
     QFrame *toolBar;
 
+    QLabel *AppTitleLabel;
+
+    QLabel *ipLabel;
+    QLineEdit *ipEdit;
+    QLabel *portLabel;
+    QLineEdit *portEdit;
+
+    QLabel *spacerItem;
+
     QPushButton *launchButton;
     QPushButton *terminateButton;
     QPushButton *standByButton;
     QPushButton *closeSystemButton;
-
-    QLabel *toolBarItem;
 
     CommunicationStatesContainer *communicationStateContainer;
 
