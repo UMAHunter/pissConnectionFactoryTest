@@ -7,6 +7,8 @@
 #include <QTableWidget>
 #include <QTreeWidget>
 #include <QHeaderView>
+#include <QGroupBox>
+
 #include <PlottingBoard.h>
 
 /**
@@ -22,6 +24,7 @@ private:
     int height;
     QStringList hardwareHeader;
     QStringList transmissionHeader;
+    QString groupBoxStyleSheet;
 
     PlottingBoard *communicationFrameRateWindow;
 
@@ -30,10 +33,17 @@ private:
     QHBoxLayout *communicationInformationWindowLayout;
 
     QTableWidget *HardwareInformation;
-    QTreeWidget *transmitBuffer;
-    QTreeWidget *receiveBuffer;
+
+    QGroupBox *transmissionArea;
+    QGroupBox *receptionArea;
+
+    QTreeWidget *transmissionBuffer;
+    QTreeWidget *receptionBuffer;
 
     QVBoxLayout *CommunicationStatesContainerLayout;
+    QHBoxLayout *transmissionAreaLayout;
+    QHBoxLayout *receptionAreaLayout;
+
 
 public:
     explicit CommunicationStatesContainer(int width, int height);

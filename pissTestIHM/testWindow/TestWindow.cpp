@@ -6,7 +6,7 @@ TestWindow::TestWindow(pissCommunicationStack *_communicationStack) : QWidget()
     communicationStack = _communicationStack;
 
     //! init
-    appSize = QGuiApplication::primaryScreen()->availableSize()*0.7;
+    appSize = QGuiApplication::primaryScreen()->availableSize()*0.8;
 
     //! ihm decoration
     setWindowFlags(Qt::FramelessWindowHint | Qt::WindowSystemMenuHint);
@@ -95,7 +95,7 @@ TestWindow::TestWindow(pissCommunicationStack *_communicationStack) : QWidget()
     myLayout->addWidget(toolBar);
     myLayout->addWidget(communicationStateContainer);
     myLayout->setSpacing(0);
-    myLayout->setMargin(0);
+    myLayout->setMargin(5);
     resize(appSize);
     drawBackground();
 
