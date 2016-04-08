@@ -40,7 +40,7 @@ void CommunicationStatesContainer::constructIHM(){
 
     this->communicationFrameRateWindow = new PlottingBoard();
     this->communicationFrameRateWindow->setFixedSize(0.5*width, 0.3*height);
-    this->communicationFrameRateWindow->setWorkSpaceColor("teal");
+    this->communicationFrameRateWindow->setWorkSpaceColor("aliceblue");
 
     this->communicationInformationWindow = new QWidget();
     this->communicationInformationWindowLayout = new QHBoxLayout(communicationInformationWindow);

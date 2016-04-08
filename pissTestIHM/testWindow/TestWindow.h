@@ -14,10 +14,12 @@
 #include <QLabel>
 #include <QLineEdit>
 
-
 #include "CommunicationStatesContainer.h"
 #include "pissCommunicationStack.h"
 
+/**
+ * @brief The TestWindow class
+ */
 class TestWindow : public QWidget
 {
     Q_OBJECT

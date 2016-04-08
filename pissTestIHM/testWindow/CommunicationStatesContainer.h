@@ -13,7 +13,7 @@
 
 /**
  * @brief The CommunicationStatesContainer class
- * @author fan de yuan
+ * @author cheng wang, fan de yuan
  */
 class CommunicationStatesContainer : public QFrame
 {
