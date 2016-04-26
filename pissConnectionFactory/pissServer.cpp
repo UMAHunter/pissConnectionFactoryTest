@@ -9,7 +9,7 @@
  */
 pissServer::pissServer(QVector <InputQueue*> *inputQueueManager,
                        QVector <OutputQueue*> *outputQueueManager,
-                       pissNetworkEnvironment *networkEnvironment,
+                       Devices *networkEnvironment,
                        DatagrammeAnalyser *datagrammeAnalyser,
                        GlobalTime *globalTime)
 {
@@ -83,7 +83,7 @@ bool pissServer::getConnectionState(){
 //! \param socketDescriptor
 //!
 void pissServer::incomingConnection(qintptr socketDescriptor){ 
-    this->networkEnvironment->addAClient();
+    this->networkEnvironment->addClient();
 
     InputQueue *myInputQueue = new InputQueue();
     myInputQueue->clear();

@@ -15,7 +15,8 @@
 #include <QLineEdit>
 
 #include "CommunicationStatesContainer.h"
-#include "pissCommunicationStack.h"
+#include "igtDispatcher.h"
+#include "igtClient.h"
 
 /**
  * @brief The TestWindow class
@@ -39,11 +40,16 @@ private:
     QLabel *portLabel;
     QLineEdit *portEdit;
 
+    QLabel *targetIpLabel;
+    QLineEdit *targetIpEdit;
+    QLabel *targetPortLabel;
+    QLineEdit *targetPortEdit;
+
     QLabel *spacerItem;
 
     QPushButton *launchButton;
     QPushButton *terminateButton;
-    QPushButton *standByButton;
+    QPushButton *connectRequestButton;
     QPushButton *closeSystemButton;
 
     CommunicationStatesContainer *communicationStateContainer;
@@ -51,14 +57,16 @@ private:
     QHBoxLayout *toolBarLayout;
     QVBoxLayout *myLayout;
 
-    pissCommunicationStack *communicationStack;
+    igtDispatcher* dispatcher;
 
 public:
-    explicit TestWindow(pissCommunicationStack *_communicationStack);
+    explicit TestWindow(igtDispatcher* dispatcher);
 
 signals:
 
 public slots:
+    void launchServer();
+    void on_ConnectRequestButtonClicked();
 };
 
 #endif // TESTWINDOW_H

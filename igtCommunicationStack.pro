@@ -13,6 +13,8 @@ TEMPLATE = app
 
 INCLUDEPATH += pissConnectionFactory
 
+INCLUDEPATH += igtDispatcher
+
 INCLUDEPATH += pissTestIHM/GuiComponentLib
 
 INCLUDEPATH += pissTestIHM/testWindow
@@ -24,16 +26,15 @@ SOURCES +=  main.cpp\
             pissConnectionFactory/DatagrammeAnalyser.cpp \
             pissConnectionFactory/GlobalTime.cpp \
             pissConnectionFactory/InputQueue.cpp \
-            pissConnectionFactory/ModuleIpConfig.cpp \
+            pissConnectionFactory/Device.cpp \
             pissConnectionFactory/OutputQueue.cpp \
             pissConnectionFactory/pissCommunicationStack.cpp \
             pissConnectionFactory/pissInputInformationDecoder.cpp \
-            pissConnectionFactory/pissNetworkEnvironment.cpp \
+            pissConnectionFactory/Devices.cpp \
             pissConnectionFactory/pissOutputInformationEncoder.cpp \
             pissConnectionFactory/pissReceptionTask.cpp \
             pissConnectionFactory/pissServer.cpp \
             pissConnectionFactory/pissTransmissionTask.cpp \
-            pissConnectionFactory/pissClient.cpp \
             pissTestIHM/GuiComponentLib/ColorChooseWindow.cpp \
             pissTestIHM/GuiComponentLib/ColorPoint.cpp \
             pissTestIHM/GuiComponentLib/CPushButton.cpp \
@@ -43,23 +44,24 @@ SOURCES +=  main.cpp\
             pissTestIHM/GuiComponentLib/qcustomplot.cpp \
             pissTestIHM/GuiComponentLib/TransferPoint.cpp \
             pissTestIHM/testWindow/TestWindow.cpp \
-            pissTestIHM/testWindow/CommunicationStatesContainer.cpp
+            pissTestIHM/testWindow/CommunicationStatesContainer.cpp \
+    pissConnectionFactory/igtClient.cpp \
+    igtDispatcher/igtDispatcher.cpp
 
 HEADERS  += \
             pissConnectionFactory/CDatagramme.h \
             pissConnectionFactory/DatagrammeAnalyser.h \
             pissConnectionFactory/GlobalTime.h \
             pissConnectionFactory/InputQueue.h \
-            pissConnectionFactory/ModuleIpConfig.h \
+            pissConnectionFactory/Device.h \
             pissConnectionFactory/OutputQueue.h \
             pissConnectionFactory/pissCommunicationStack.h \
             pissConnectionFactory/pissInputInformationDecoder.h \
-            pissConnectionFactory/pissNetworkEnvironment.h \
+            pissConnectionFactory/Devices.h \
             pissConnectionFactory/pissOutputInformationEncoder.h \
             pissConnectionFactory/pissReceptionTask.h \
             pissConnectionFactory/pissServer.h \
             pissConnectionFactory/pissTransmissionTask.h \
-            pissConnectionFactory/pissClient.h \
             pissTestIHM/GuiComponentLib/ColorChooseWindow.h \
             pissTestIHM/GuiComponentLib/ColorPoint.h \
             pissTestIHM/GuiComponentLib/CPushButton.h \
@@ -69,4 +71,6 @@ HEADERS  += \
             pissTestIHM/GuiComponentLib/qcustomplot.h \
             pissTestIHM/GuiComponentLib/TransferPoint.h \
             pissTestIHM/testWindow/TestWindow.h \
-            pissTestIHM/testWindow/CommunicationStatesContainer.h
+            pissTestIHM/testWindow/CommunicationStatesContainer.h \
+    pissConnectionFactory/igtClient.h \
+    igtDispatcher/igtDispatcher.h

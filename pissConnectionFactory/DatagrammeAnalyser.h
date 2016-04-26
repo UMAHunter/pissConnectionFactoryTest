@@ -8,9 +8,10 @@
 #include "InputQueue.h"
 #include "OutputQueue.h"
 #include "CDatagramme.h"
-#include "pissNetworkEnvironment.h"
+#include "Devices.h"
 #include "pissTransmissionTask.h"
 #include "GlobalTime.h"
+#include "igtClient.h"
 
 
 //! Codes des erreurs remontees par les fonctions
@@ -27,7 +28,7 @@ typedef enum {
 class DatagrammeAnalyser
 {
 public:
-    DatagrammeAnalyser(QVector <OutputQueue*> *oq, QVector <InputQueue*> *iq, pissNetworkEnvironment *environment, GlobalTime *globalTime);
+    DatagrammeAnalyser(QVector <OutputQueue*> *oq, QVector <InputQueue*> *iq, Devices *environment, GlobalTime *globalTime);
     ~DatagrammeAnalyser();
 
     void encodage(QString modulename);
@@ -43,7 +44,7 @@ private:
     QVector <InputQueue*> *iq;
     QVector <OutputQueue*> *oq;
 
-    pissNetworkEnvironment *mNetworkEnvironment;
+    Devices *devices;
     GlobalTime *globalTime;
 };
 

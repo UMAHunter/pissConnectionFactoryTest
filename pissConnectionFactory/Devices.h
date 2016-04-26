@@ -6,18 +6,19 @@
 #include<QList>
 #include<QNetworkInterface>
 #include<QMutex>
-#include"ModuleIpConfig.h"
+#include"Device.h"
 
 
-class pissNetworkEnvironment
+class Devices
 {
 public:
+    Devices();
     void append(QString ModuleName, int Port);
     void append(int ModuleNumber, int Port);
     void append(QString ModuleName, int Port, QString addr, int Socketrec, quint32 Clientlistenport, quint8 Code);
     void append(int ModuleNumber, int Port, QString addr, int Socketrec, quint32 Clientlistenport, quint8 Code);
 
-    QHostAddress selfDetectIP();
+    QHostAddress ipDetect();
 
     void setModuleName(QString ModuleName);
     void setIpAddressByModule(QString ModuleName, QHostAddress ip);
@@ -37,17 +38,15 @@ public:
     quint32 getClientlistenportByModule(QString ModuleName);
     bool getCodeByModule(QString ModuleName);
 
-    void addAClient();
+    void addClient();
     int getClientNumber();
 
+    Device* getDeviceAt(int index);
 private:
     QMutex mutex;
-    int clientCount;
+    int deviceCount;
     QString moduleName;
-    QList <ModuleIpConfig*> modules;
-
-public:
-    pissNetworkEnvironment();
+    QList <Device*> devices;
 };
 
 #endif // PISSNETWORKENVIRONMENT_H

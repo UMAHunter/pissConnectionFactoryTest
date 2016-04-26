@@ -11,7 +11,7 @@ pissReceptionTask::pissReceptionTask(int id,
                              qintptr SD,
                              DatagrammeAnalyser *datagrammeAnalyser,
                              QVector <InputQueue*> *inputQueueManager,
-                             pissNetworkEnvironment *networkEnvironment)
+                             Devices *networkEnvironment)
 {
     this->id = id;
     this->sd = SD;
@@ -72,6 +72,5 @@ void pissReceptionTask::lecture()
 //!
 void pissReceptionTask::disconnect()
 {
-    qDebug()<<sd<<"Disconnected";
     this->soc->deleteLater();
 }
