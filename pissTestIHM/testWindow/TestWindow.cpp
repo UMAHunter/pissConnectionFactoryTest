@@ -21,25 +21,25 @@ TestWindow::TestWindow(igtDispatcher* dispatcher) : QWidget()
     AppTitleLabel->setFont(QFont("Helvetica",13, QFont::AnyStyle, true));
     AppTitleLabel->setAlignment(Qt::AlignCenter);
 
-    ipLabel = new QLabel("ip adrresse: ");
+    ipLabel = new QLabel("ip address:");
     ipLabel->setFixedSize(appSize.width()*0.08, appSize.height()*0.05);
     ipLabel->setStyleSheet( "border: 0px solid gainsboro;  border-radius: 0px; background-color: transparent; color: beige");
     ipLabel->setFont(QFont("Helvetica",12, QFont::AnyStyle, false));
     ipLabel->setAlignment(Qt::AlignCenter);
 
-    ipEdit = new QLineEdit("127.0.0.1");
+    ipEdit = new QLineEdit("172.20.14.18");
     ipEdit->setFixedSize(appSize.width()*0.1, appSize.height()*0.05);
     ipEdit->setStyleSheet( "border: 0px solid gainsboro;  border-radius: 0px; background-color: transparent; color: beige");
     ipEdit->setFont(QFont("Helvetica",12, QFont::AnyStyle, false));
     ipEdit->setAlignment(Qt::AlignCenter);
 
-    portLabel = new QLabel("port: ");
+    portLabel = new QLabel("port:");
     portLabel->setFixedSize(appSize.width()*0.04, appSize.height()*0.05);
     portLabel->setStyleSheet( "border: 0px solid gainsboro;  border-radius: 0px; background-color: transparent; color: beige");
     portLabel->setFont(QFont("Helvetica",12, QFont::AnyStyle, false));
     portLabel->setAlignment(Qt::AlignCenter);
 
-    portEdit = new QLineEdit("10703");
+    portEdit = new QLineEdit("2630");
     portEdit->setFixedSize(appSize.width()*0.04, appSize.height()*0.05);
     portEdit->setStyleSheet( "border: 0px solid gainsboro;  border-radius: 0px; background-color: transparent; color: beige");
     portEdit->setFont(QFont("Helvetica",12, QFont::AnyStyle, false));
@@ -61,13 +61,13 @@ TestWindow::TestWindow(igtDispatcher* dispatcher) : QWidget()
     spacerItem->setFixedSize(appSize.width()*0.1, appSize.height()*0.05);
 
     //!- ------------------------------------------
-    targetIpLabel = new QLabel("ip adrresse: ");
+    targetIpLabel = new QLabel("ip address: ");
     targetIpLabel->setFixedSize(appSize.width()*0.08, appSize.height()*0.05);
     targetIpLabel->setStyleSheet( "border: 0px solid gainsboro;  border-radius: 0px; background-color: transparent; color: beige");
     targetIpLabel->setFont(QFont("Helvetica",12, QFont::AnyStyle, false));
     targetIpLabel->setAlignment(Qt::AlignCenter);
 
-    targetIpEdit = new QLineEdit("127.0.0.1");
+    targetIpEdit = new QLineEdit("172.20.14.150");
     targetIpEdit->setFixedSize(appSize.width()*0.1, appSize.height()*0.05);
     targetIpEdit->setStyleSheet( "border: 0px solid gainsboro;  border-radius: 0px; background-color: transparent; color: beige");
     targetIpEdit->setFont(QFont("Helvetica",12, QFont::AnyStyle, false));
@@ -139,7 +139,7 @@ TestWindow::TestWindow(igtDispatcher* dispatcher) : QWidget()
 //! \brief TestWindow::on_ConnectRequestButtonClicked
 //!
 void TestWindow::on_ConnectRequestButtonClicked(){
-    this->dispatcher->launchConnectBackProcess(true,targetIpEdit->text(), targetPortEdit->text().toInt() );
+    this->dispatcher->launchConnectBackProcess(true,targetIpEdit->text(), targetPortEdit->text().toInt());
 }
 
 //! ----------------------------------------------------------------------------------------------------------------

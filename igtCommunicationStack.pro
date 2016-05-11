@@ -13,6 +13,12 @@ TEMPLATE = app
 
 INCLUDEPATH += pissConnectionFactory
 
+INCLUDEPATH += pissConnectionFactory/DatagramPackage
+
+INCLUDEPATH += pissConnectionFactory/CommunicationStackStructure
+
+INCLUDEPATH += pissConnectionFactory/CommunicationStackTask
+
 INCLUDEPATH += igtDispatcher
 
 INCLUDEPATH += pissTestIHM/GuiComponentLib
@@ -22,19 +28,6 @@ INCLUDEPATH += pissTestIHM/testWindow
 RESOURCES = imageresources.qrc
 
 SOURCES +=  main.cpp\
-            pissConnectionFactory/CDatagramme.cpp \
-            pissConnectionFactory/DatagrammeAnalyser.cpp \
-            pissConnectionFactory/GlobalTime.cpp \
-            pissConnectionFactory/InputQueue.cpp \
-            pissConnectionFactory/Device.cpp \
-            pissConnectionFactory/OutputQueue.cpp \
-            pissConnectionFactory/pissCommunicationStack.cpp \
-            pissConnectionFactory/pissInputInformationDecoder.cpp \
-            pissConnectionFactory/Devices.cpp \
-            pissConnectionFactory/pissOutputInformationEncoder.cpp \
-            pissConnectionFactory/pissReceptionTask.cpp \
-            pissConnectionFactory/pissServer.cpp \
-            pissConnectionFactory/pissTransmissionTask.cpp \
             pissTestIHM/GuiComponentLib/ColorChooseWindow.cpp \
             pissTestIHM/GuiComponentLib/ColorPoint.cpp \
             pissTestIHM/GuiComponentLib/CPushButton.cpp \
@@ -45,23 +38,27 @@ SOURCES +=  main.cpp\
             pissTestIHM/GuiComponentLib/TransferPoint.cpp \
             pissTestIHM/testWindow/TestWindow.cpp \
             pissTestIHM/testWindow/CommunicationStatesContainer.cpp \
-    pissConnectionFactory/igtClient.cpp \
-    igtDispatcher/igtDispatcher.cpp
+            pissConnectionFactory/GlobalTime.cpp \
+            pissConnectionFactory/pissCommunicationStack.cpp \
+            igtDispatcher/igtDispatcher.cpp \
+            pissConnectionFactory/CommunicationStackStructure/Device.cpp \
+            pissConnectionFactory/CommunicationStackStructure/Devices.cpp \
+            pissConnectionFactory/CommunicationStackStructure/InputQueue.cpp \
+            pissConnectionFactory/CommunicationStackStructure/OutputQueue.cpp \
+            pissConnectionFactory/CommunicationStackTask/igtClient.cpp \
+            pissConnectionFactory/CommunicationStackTask/pissInputInformationDecoder.cpp \
+            pissConnectionFactory/CommunicationStackTask/pissOutputInformationEncoder.cpp \
+            pissConnectionFactory/CommunicationStackTask/pissReceptionTask.cpp \
+            pissConnectionFactory/CommunicationStackTask/pissServer.cpp \
+            pissConnectionFactory/CommunicationStackTask/pissTransmissionTask.cpp \
+            pissConnectionFactory/DatagramPackage/CDatagramme.cpp \
+            pissConnectionFactory/DatagramPackage/DatagrammeAnalyser.cpp \
+            pissConnectionFactory/DatagramPackage/HandShakeCommitMessage.cpp \
+            pissConnectionFactory/DatagramPackage/HandShakeMessage.cpp \
+            pissConnectionFactory/DatagramPackage/HelloMessage.cpp \
+    SystemDataBase.cpp
 
 HEADERS  += \
-            pissConnectionFactory/CDatagramme.h \
-            pissConnectionFactory/DatagrammeAnalyser.h \
-            pissConnectionFactory/GlobalTime.h \
-            pissConnectionFactory/InputQueue.h \
-            pissConnectionFactory/Device.h \
-            pissConnectionFactory/OutputQueue.h \
-            pissConnectionFactory/pissCommunicationStack.h \
-            pissConnectionFactory/pissInputInformationDecoder.h \
-            pissConnectionFactory/Devices.h \
-            pissConnectionFactory/pissOutputInformationEncoder.h \
-            pissConnectionFactory/pissReceptionTask.h \
-            pissConnectionFactory/pissServer.h \
-            pissConnectionFactory/pissTransmissionTask.h \
             pissTestIHM/GuiComponentLib/ColorChooseWindow.h \
             pissTestIHM/GuiComponentLib/ColorPoint.h \
             pissTestIHM/GuiComponentLib/CPushButton.h \
@@ -72,5 +69,22 @@ HEADERS  += \
             pissTestIHM/GuiComponentLib/TransferPoint.h \
             pissTestIHM/testWindow/TestWindow.h \
             pissTestIHM/testWindow/CommunicationStatesContainer.h \
-    pissConnectionFactory/igtClient.h \
-    igtDispatcher/igtDispatcher.h
+            pissConnectionFactory/GlobalTime.h \
+            pissConnectionFactory/pissCommunicationStack.h \
+            igtDispatcher/igtDispatcher.h \
+            pissConnectionFactory/CommunicationStackStructure/Device.h \
+            pissConnectionFactory/CommunicationStackStructure/Devices.h \
+            pissConnectionFactory/CommunicationStackStructure/InputQueue.h \
+            pissConnectionFactory/CommunicationStackStructure/OutputQueue.h \
+            pissConnectionFactory/CommunicationStackTask/igtClient.h \
+            pissConnectionFactory/CommunicationStackTask/pissInputInformationDecoder.h \
+            pissConnectionFactory/CommunicationStackTask/pissOutputInformationEncoder.h \
+            pissConnectionFactory/CommunicationStackTask/pissReceptionTask.h \
+            pissConnectionFactory/CommunicationStackTask/pissServer.h \
+            pissConnectionFactory/CommunicationStackTask/pissTransmissionTask.h \
+            pissConnectionFactory/DatagramPackage/CDatagramme.h \
+            pissConnectionFactory/DatagramPackage/DatagrammeAnalyser.h \
+            pissConnectionFactory/DatagramPackage/HandShakeCommitMessage.h \
+            pissConnectionFactory/DatagramPackage/HandShakeMessage.h \
+            pissConnectionFactory/DatagramPackage/HelloMessage.h \
+    SystemDataBase.h

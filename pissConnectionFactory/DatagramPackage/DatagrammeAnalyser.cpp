@@ -3,12 +3,14 @@
 DatagrammeAnalyser::DatagrammeAnalyser(QVector <OutputQueue*> *oq,
                                        QVector <InputQueue*> *iq,
                                        Devices* environment,
-                                       GlobalTime *globalTime)
+                                       GlobalTime *globalTime,
+                                       SystemDataBase* database)
 {
     this->iq = iq;
     this->oq = oq;
     this->devices = environment;
     this->globalTime = globalTime;
+    this->database = database;
 }
 
 DatagrammeAnalyser::~DatagrammeAnalyser()
@@ -16,14 +18,25 @@ DatagrammeAnalyser::~DatagrammeAnalyser()
 
 }
 
+//! ----------------------------------------------------------------------------------------
+//!
+//! \brief DatagrammeAnalyser::encodage
+//! \param modulename
+//!
 void DatagrammeAnalyser::encodage(QString modulename)
 {
 
 }
 
+//! ----------------------------------------------------------------------------------------
+//!
+//! \brief DatagrammeAnalyser::decodage
+//! \param id
+//! \param datagramme
+//!
 void DatagrammeAnalyser::decodage(int id, CDatagramme *datagramme){
 
-    switch (datagramme->getID()){
+    switch (datagramme->getDataType()){
         case HelloMessage: {
             qDebug()<<"HelloMessage";
             decodeHelloMessage(id, datagramme);
@@ -50,7 +63,7 @@ void DatagrammeAnalyser::decodage(int id, CDatagramme *datagramme){
 //! \param datagramme
 //!
 void DatagrammeAnalyser::decodeHelloMessage(int id, CDatagramme *datagramme){
-    datagramme->modifierTimestamp(globalTime->GetMicroS());
+    datagramme->setTimestamp(globalTime->GetMicroS());
     oq->at(id)->append(datagramme);
 }
 
@@ -60,19 +73,16 @@ void DatagrammeAnalyser::decodeHelloMessage(int id, CDatagramme *datagramme){
 //! \param id
 //! \param datagramme
 //!
+//! handshake msg format: + + +
+//!
 void DatagrammeAnalyser::decodeHandShakeMessage(int id, CDatagramme *datagramme){
+//    HandShakeMessage *msg = new HandShakeMessage();
+//    msg->decodeDatagram(datagramme);
 
-    QString addr = QString("%1.%2.%3.%4").
-            arg(quint8(datagramme->getValue()->at(8))).
-            arg(quint8(datagramme->getValue()->at(9))).
-            arg(quint8(datagramme->getValue()->at(10))).
-            arg(quint8(datagramme->getValue()->at(11)));
+//    igtClient *client = new igtClient(id, this->oq, this->devices);
+//    client->connectBackRequest(msg.ip, msg.port);
 
-    int port = datagramme->getValue()->at(12)*100 + datagramme->getValue()->at(13);
-    devices->append(id, port, addr, 0, 0, 1);
-
-    igtClient *client = new igtClient(devices->getClientNumber()-1, this->oq, this->devices);
-    client->connectBackRequest(addr, port);
+  //  this->database->notify();
 }
 
 //! ----------------------------------------------------------------------------------------

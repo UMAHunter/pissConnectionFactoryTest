@@ -25,6 +25,7 @@ CDatagramme::~CDatagramme(){
 void CDatagramme::setValue(QByteArray* value){
     this->value = value;
     this->totalLength = this->value->length();
+    printSelf();
 }
 
 //!-------------------------------------------------------------
@@ -38,7 +39,12 @@ QByteArray* CDatagramme::getValue(){
 
 void CDatagramme::printSelf(){
     qDebug()<<this->totalLength<<":"<<this->value;
-
+    qDebug()<<unsigned char(this->value->at(0));
+    qDebug()<<unsigned char(this->value->at(1));
+    qDebug()<<unsigned char(this->value->at(2));
+    qDebug()<<unsigned char(this->value->at(3));
+    qDebug()<<unsigned char(this->value->at(4));
+    qDebug()<<unsigned char(this->value->at(5));
 }
 
 //!-------------------------------------------------------------
@@ -46,27 +52,27 @@ void CDatagramme::printSelf(){
 //! \brief CDatagramme::getIdentifierByte
 //! \return
 //!
-int CDatagramme::getID(){
-    return int(this->value->at(0));
+unsigned char CDatagramme::getDataType(){
+    return this->value->at(0);
 }
 
-void CDatagramme::modifierTimestamp(qint32 time){
-    (*this->value)[1] = time % int(pow(2, 8));
-    (*this->value)[2] = time / int(pow(2, 8)) % int(pow(2, 8));
-    (*this->value)[3] = time / int(pow(2, 16)) % int(pow(2,8));
-    (*this->value)[4] = time / int(pow(2, 24)) % int(pow(2,8));
+unsigned char CDatagramme::getDeviceId(){
+    return this->value->at(1);
+}
+
+void CDatagramme::setTimestamp(qint32 time){
+    (*this->value)[2] = time % int(pow(2, 8));
+    (*this->value)[3] = time / int(pow(2, 8)) % int(pow(2, 8));
+    (*this->value)[4] = time / int(pow(2, 16)) % int(pow(2,8));
+    (*this->value)[5] = time / int(pow(2, 24)) % int(pow(2,8));
 }
 
 QString CDatagramme::getTimestamp()
 {
-    return QString("%1%2%3%4").arg(quint8(this->value->at(1))).arg(quint8(this->value->at(2))).arg(quint8(this->value->at(3))).arg(quint8(this->value->at(4)));
+    return QString("%1%2%3%4").arg(quint8(this->value->at(2))).arg(quint8(this->value->at(3))).arg(quint8(this->value->at(4))).arg(quint8(this->value->at(5)));
 }
 
 int CDatagramme::getDLC()
 {
     return this->value->size() - 8;
-}
-
-int CDatagramme::getModuleNumber(){
-    return int(this->value->at(7));
 }
